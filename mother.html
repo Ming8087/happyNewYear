@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给妈妈的爱</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/snowfall.jquery.js"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .heart {
+            width: 400px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .snowfall-flakes:before,
+        .snowfall-flakes:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            display: block;
+            background: red;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .snowfall-flakes:before {
+            transform: rotate(-45deg);
+        }
+
+        .snowfall-flakes:after {
+            transform: rotate(45deg);
+            left: 7px;
+        }
+
+        #zhou, #zhou2
+        {
+            font-size:20px;
+            color:red;
+            height:25px;
+            font-weight:bold;
+            width:500px;
+        }
+
+        body {
+            overflow: hidden;
+            background: url("images/mother.jpg");
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<embed src="music/世上只有妈妈好.mp3" hidden="true" autostart="true" loop="true">
+<!--<div id="zi" >祝福我最爱的妈妈,愿您的生活充满快乐,祝您母亲节快乐</div>-->
+<div id="zi" style="width:100px; height:53px; overflow:hidden">
+    <div id="zhou">祝福我最爱的妈妈,愿您的生活充满快乐,祝您母亲节快乐!</div>
+</div>
+<div class="heart">
+    <!-- <div class="lovefall"></div> -->
+</div>
+<script>
+    showDT()
+    $(function () {
+        setTimeout(function () {
+            $(document).snowfall({
+                flakeCount: 30, //设置爱心数目
+                flakeColor: 'none'
+            })
+        }, 2000);
+    })
+
+    function showDT() //让文字逐渐展示出来
+    {
+        var s= document.getElementById("zi");
+        if(parseInt(s.style.width)<5000)
+        {
+            var w=parseInt(s.style.width)+1;
+            s.style.width=w+"px";
+            window.setTimeout("showDT()",10);
+        }
+    }
+</script>
+
+
+</body>
+
+</html>
